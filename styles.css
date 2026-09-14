@@ -169,6 +169,21 @@ h1 span {
   transition: transform 160ms ease, background-color 160ms ease;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-actions > span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .primary-action:hover {
   background: #2b7aff;
   transform: translateY(-2px);
