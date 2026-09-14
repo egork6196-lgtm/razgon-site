@@ -37,11 +37,18 @@ select {
 }
 
 .page-shell {
+  position: relative;
   min-height: 100vh;
   overflow: hidden;
+  isolation: isolate;
   background:
     radial-gradient(circle at 85% 42%, rgba(20, 108, 255, 0.18), transparent 28rem),
     linear-gradient(135deg, var(--graphite-900), var(--graphite-950) 62%);
+}
+
+.page-shell::before,
+.page-shell::after {
+  content: none;
 }
 
 .site-header {
@@ -117,6 +124,8 @@ select {
 }
 
 .hero {
+  position: relative;
+  isolation: isolate;
   width: min(1180px, calc(100% - 48px));
   min-height: calc(100vh - 84px);
   margin: 0 auto;
@@ -125,6 +134,25 @@ select {
   align-items: center;
   gap: 64px;
   padding: 72px 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: 2%;
+  z-index: 0;
+  width: min(68vw, 820px);
+  height: 178px;
+  background: linear-gradient(94deg, rgba(20, 108, 255, 0.035), rgba(20, 108, 255, 0.24) 64%, rgba(255, 59, 77, 0.16));
+  clip-path: polygon(0 88%, 34% 53%, 39% 70%, 58% 21%, 64% 61%, 87% 0, 100% 28%, 68% 94%, 60% 49%, 40% 94%, 35% 76%, 0 100%);
+  pointer-events: none;
+  filter: drop-shadow(0 0 28px rgba(20, 108, 255, 0.12));
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -278,8 +306,73 @@ select:focus-visible {
 }
 
 .section {
+  position: relative;
+  isolation: isolate;
   padding: 112px 0;
   border-top: 1px solid var(--line);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 0;
+  z-index: 2;
+  width: clamp(110px, 16vw, 190px);
+  height: 9px;
+  background: linear-gradient(90deg, var(--blue) 0 68%, transparent 68% 74%, var(--red) 74% 100%);
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  box-shadow: 0 0 24px rgba(20, 108, 255, 0.34);
+}
+
+.section::after {
+  content: none;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section:nth-of-type(odd)::before {
+  right: auto;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.programs::after {
+  content: "";
+  position: absolute;
+  top: 54px;
+  right: -90px;
+  z-index: 0;
+  width: min(54vw, 660px);
+  height: 118px;
+  background: linear-gradient(96deg, rgba(20, 108, 255, 0.05), rgba(20, 108, 255, 0.28) 58%, rgba(255, 59, 77, 0.2));
+  clip-path: polygon(0 78%, 54% 18%, 61% 58%, 100% 0, 67% 92%, 58% 48%, 0 100%);
+  pointer-events: none;
+  filter: drop-shadow(0 0 22px rgba(20, 108, 255, 0.16));
+}
+
+.brand-watermark {
+  position: absolute;
+  top: 22px;
+  left: -38px;
+  z-index: 0;
+  width: clamp(190px, 23vw, 320px);
+  height: auto;
+  opacity: 0.22;
+  transform: skewX(-8deg) rotate(-2deg);
+  pointer-events: none;
+  filter: drop-shadow(18px 14px 42px rgba(20, 108, 255, 0.12));
+}
+
+.brand-watermark__white {
+  fill: rgba(245, 247, 251, 0.72);
+}
+
+.brand-watermark__red {
+  fill: rgba(255, 59, 77, 0.9);
 }
 
 .section-heading {
@@ -570,12 +663,32 @@ select:focus-visible {
 }
 
 .program-hero {
+  position: relative;
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   gap: 72px;
   padding: 108px 0 80px;
+}
+
+.program-hero::after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  bottom: 8px;
+  z-index: 0;
+  width: min(56vw, 620px);
+  height: 104px;
+  background: linear-gradient(98deg, rgba(20, 108, 255, 0.05), rgba(20, 108, 255, 0.25) 62%, rgba(255, 59, 77, 0.16));
+  clip-path: polygon(0 82%, 59% 22%, 65% 61%, 100% 0, 71% 92%, 63% 51%, 0 100%);
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.program-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .program-hero h1 {
@@ -776,6 +889,14 @@ select:focus-visible {
     padding: 64px 0 40px;
   }
 
+  .hero::after {
+    right: -150px;
+    bottom: 4%;
+    width: 480px;
+    height: 102px;
+    opacity: 0.72;
+  }
+
   h1 {
     font-size: clamp(2.7rem, 14vw, 5.3rem);
   }
@@ -786,6 +907,28 @@ select:focus-visible {
 
   .section {
     padding: 80px 0;
+  }
+
+  .section::before {
+    width: 118px;
+    height: 7px;
+  }
+
+  .programs::after {
+    top: 38px;
+    right: -140px;
+    width: 360px;
+    height: 76px;
+    opacity: 0.72;
+  }
+
+  .section::after {
+    right: -220px;
+    opacity: 0.78;
+  }
+
+  .section:nth-of-type(odd)::after {
+    left: -220px;
   }
 
   .section-heading-row,
