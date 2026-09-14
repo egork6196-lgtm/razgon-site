@@ -142,7 +142,10 @@ h1 {
 }
 
 h1 span {
-  color: var(--blue);
+  color: transparent;
+  background: linear-gradient(96deg, var(--blue) 0 72%, #7354a9 88%, var(--red) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .hero-text {
@@ -166,6 +169,7 @@ h1 span {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   box-shadow: 0 14px 40px rgba(20, 108, 255, 0.28);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
   transition: transform 160ms ease, background-color 160ms ease;
 }
 
