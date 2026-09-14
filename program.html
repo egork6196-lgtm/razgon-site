@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Демонстрационная страница учебной программы будущей автошколы Razgon."
+    />
+    <title>Уверенный маршрут — учебный прототип Razgon</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="Razgon — на главную">
+          <img src="./assets/razgon-logo.jpg" alt="Логотип Razgon" />
+          <span>RAZGON</span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+          <a href="./index.html#advantages">Преимущества</a>
+          <a href="./index.html#programs">Программы</a>
+          <a href="./index.html#steps">Этапы</a>
+          <a href="./index.html#faq">FAQ</a>
+        </nav>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle-label">Меню</span>
+          <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+        </button>
+        <a class="header-action" href="./index.html#demo-form">Начать</a>
+      </header>
+
+      <main>
+        <section class="program-hero" aria-labelledby="program-title">
+          <div>
+            <p class="eyebrow">Демонстрационная программа · категория B</p>
+            <h1 id="program-title">Уверенный<br /><span>маршрут</span></h1>
+            <p class="program-lead">
+              Пример подробной страницы для будущей учебной программы. Содержание пока
+              показывает структуру сайта и не является реальным предложением автошколы.
+            </p>
+          </div>
+          <aside class="program-summary" aria-label="Кратко о программе">
+            <span class="program-summary-label">Учебный пример</span>
+            <strong>B</strong>
+            <p>Теория, практика и последовательная подготовка к экзамену.</p>
+          </aside>
+        </section>
+
+        <section class="section program-details" aria-labelledby="details-title">
+          <div class="section-heading">
+            <p class="eyebrow">Что внутри</p>
+            <h2 id="details-title">Три части маршрута</h2>
+          </div>
+          <ol class="detail-list">
+            <li>
+              <span>01</span>
+              <div><h2>Понятная теория</h2><p>Демонстрационный блок о правилах и дорожных ситуациях без перегруженной подачи.</p></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><h2>Практика за рулём</h2><p>Пример последовательного освоения базовых действий и городских маршрутов.</p></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><h2>Подготовка к экзамену</h2><p>Повторение ключевых навыков и разбор типовых ситуаций в учебном формате.</p></div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section program-next" aria-labelledby="next-title">
+          <div>
+            <p class="eyebrow">Следующий шаг</p>
+            <h2 id="next-title">Вернуться на главную и проверить демо-форму</h2>
+          </div>
+          <a class="primary-action" href="./index.html#demo-form">К форме</a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">RAZGON</div>
+        <p>Учебная версия. Программа и её содержание являются демонстрационными.</p>
+        <a href="./index.html">На главную ↑</a>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

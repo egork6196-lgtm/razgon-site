@@ -569,9 +569,115 @@ select:focus-visible {
   text-decoration: none;
 }
 
+.program-hero {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 72px;
+  padding: 108px 0 80px;
+}
+
+.program-hero h1 {
+  margin-bottom: 28px;
+}
+
+.program-lead {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.program-summary {
+  align-self: end;
+  padding: 30px;
+  border: 1px solid rgba(20, 108, 255, 0.62);
+  background:
+    radial-gradient(circle at 100% 0, rgba(20, 108, 255, 0.28), transparent 13rem),
+    var(--graphite-800);
+}
+
+.program-summary-label {
+  color: #8ab7ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.program-summary strong {
+  display: block;
+  margin: 34px 0 10px;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.9;
+}
+
+.program-summary p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.program-details {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 80px;
+}
+
+.detail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.detail-list li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-list span {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.detail-list h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.detail-list p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.program-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.program-next h2 {
+  max-width: 680px;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 800px) {
   .site-header,
   .hero,
+  .program-hero,
   .section,
   .site-footer {
     width: min(100% - 32px, 680px);
@@ -683,9 +789,24 @@ select:focus-visible {
   }
 
   .section-heading-row,
+  .program-hero,
+  .program-details,
   .faq,
   .contact {
     display: block;
+  }
+
+  .program-hero {
+    padding: 72px 0 56px;
+  }
+
+  .program-summary {
+    margin-top: 44px;
+  }
+
+  .program-next {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .section-note {
