@@ -26,7 +26,8 @@ body {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
 
-body:has(.program-dialog[open]) {
+body:has(.program-dialog[open]),
+body:has(.form-dialog[open]) {
   overflow: hidden;
 }
 
@@ -685,6 +686,26 @@ select:focus-visible {
   padding: 108px 0 80px;
 }
 
+.contact-launch-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 38px;
+  border-top: 4px solid var(--blue);
+  background: var(--graphite-800);
+}
+
+.contact-launch-card > span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .program-dialog {
   width: min(1020px, calc(100% - 48px));
   max-height: 88dvh;
@@ -803,6 +824,31 @@ select:focus-visible {
 .program-dialog-actions p {
   color: var(--muted);
   line-height: 1.6;
+}
+
+.form-dialog {
+  width: min(700px, calc(100% - 48px));
+}
+
+.form-dialog-panel {
+  padding: clamp(34px, 5vw, 58px);
+}
+
+.form-dialog .form-dialog-heading h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 0.92;
+}
+
+.form-dialog-heading > p:last-child {
+  max-width: 540px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.form-dialog .learning-form {
+  margin-top: 32px;
 }
 
 .program-dialog-summary {
@@ -1163,6 +1209,10 @@ select:focus-visible {
   .program-dialog {
     width: calc(100% - 24px);
     max-height: 92dvh;
+  }
+
+  .form-dialog {
+    width: calc(100% - 24px);
   }
 
   .program-dialog-panel {

@@ -38,7 +38,7 @@
             <span></span>
           </span>
         </button>
-        <a class="header-action" href="#demo-form">Начать</a>
+        <a class="header-action" href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Начать</a>
       </header>
 
       <main id="top">
@@ -54,7 +54,7 @@
               демонстрационная версия будущего сайта.
             </p>
             <div class="hero-actions">
-              <a class="primary-action" href="#demo-form">Начать обучение</a>
+              <a class="primary-action" href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Начать обучение</a>
               <span>Демо · без отправки данных</span>
             </div>
           </div>
@@ -110,7 +110,7 @@
                 <li>Практические занятия</li>
                 <li>Подготовка к экзамену</li>
               </ul>
-              <a href="#demo-form">Выбрать программу</a>
+              <a href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Выбрать программу</a>
             </article>
             <article class="program-card program-card-primary">
               <span class="demo-tag">Демо · акцент</span>
@@ -158,7 +158,7 @@
             </details>
             <details>
               <summary>Можно ли сейчас записаться на обучение?</summary>
-              <p>Нет. Форма ниже демонстрирует интерфейс и ничего не отправляет.</p>
+              <p>Нет. Всплывающая форма демонстрирует интерфейс и ничего не отправляет.</p>
             </details>
             <details>
               <summary>Указанные программы уже утверждены?</summary>
@@ -171,24 +171,14 @@
           <div class="contact-copy">
             <p class="eyebrow">Демонстрационная запись</p>
             <h2 id="contact-title">Готовы начать?</h2>
-            <p>Заполните тестовые поля, чтобы увидеть работу формы. Не вводите реальные персональные данные.</p>
+            <p>Откройте тестовую форму, чтобы увидеть новый сценарий. Не вводите реальные персональные данные.</p>
           </div>
-          <form id="learning-form" class="learning-form" novalidate>
-            <label for="name">Учебное имя</label>
-            <input id="name" name="name" type="text" placeholder="Например, Анна" required />
-
-            <label for="contact">Учебный контакт</label>
-            <input id="contact" name="contact" type="text" placeholder="Например, demo@example.test" required />
-
-            <label for="program">Программа</label>
-            <select id="program" name="program">
-              <option>Первое обучение — демо</option>
-              <option>Уверенный маршрут — демо</option>
-            </select>
-
-            <button type="submit">Проверить форму</button>
-            <p id="form-status" class="form-status" aria-live="polite"></p>
-          </form>
+          <div class="contact-launch-card">
+            <span>Демо · данные не отправляются</span>
+            <button class="primary-action" type="button" data-form-dialog-open aria-haspopup="dialog">
+              Открыть форму
+            </button>
+          </div>
         </section>
       </main>
 
@@ -223,8 +213,36 @@
 
           <div class="program-dialog-actions">
             <p>Все сведения в окне демонстрационные.</p>
-            <a class="primary-action" href="#demo-form" data-program-dialog-choose>Выбрать программу</a>
+            <a class="primary-action" href="#demo-form" data-program-dialog-choose data-form-dialog-open aria-haspopup="dialog">Выбрать программу</a>
           </div>
+        </div>
+      </dialog>
+
+      <dialog id="form-dialog" class="program-dialog form-dialog" aria-labelledby="form-dialog-title">
+        <div class="program-dialog-panel form-dialog-panel">
+          <button class="program-dialog-close" type="button" data-form-dialog-close aria-label="Закрыть форму">×</button>
+          <div class="form-dialog-heading">
+            <p class="eyebrow">Демонстрационная запись</p>
+            <h2 id="form-dialog-title">Начать обучение</h2>
+            <p>Заполните тестовые поля. Реальные данные не нужны и никуда не отправляются.</p>
+          </div>
+
+          <form id="learning-form" class="learning-form" novalidate>
+            <label for="name">Учебное имя</label>
+            <input id="name" name="name" type="text" placeholder="Например, Анна" required />
+
+            <label for="contact">Учебный контакт</label>
+            <input id="contact" name="contact" type="text" placeholder="Например, demo@example.test" required />
+
+            <label for="program">Программа</label>
+            <select id="program" name="program">
+              <option>Первое обучение — демо</option>
+              <option>Уверенный маршрут — демо</option>
+            </select>
+
+            <button type="submit">Проверить форму</button>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
         </div>
       </dialog>
 

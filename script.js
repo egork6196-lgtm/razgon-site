@@ -6,8 +6,13 @@ const programDialog = document.querySelector("#program-dialog");
 const programDialogOpen = document.querySelector("[data-program-dialog-open]");
 const programDialogClose = document.querySelector("[data-program-dialog-close]");
 const programDialogChoose = document.querySelector("[data-program-dialog-choose]");
+const formDialog = document.querySelector("#form-dialog");
+const formDialogOpeners = document.querySelectorAll("[data-form-dialog-open]:not([data-program-dialog-choose])");
+const formDialogClose = document.querySelector("[data-form-dialog-close]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let dialogCloseTimer;
+let formDialogCloseTimer;
+let lastFormDialogTrigger;
 
 const closeMenu = () => {
   siteNav.classList.remove("is-open");
@@ -25,7 +30,7 @@ siteNav.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !programDialog?.open) {
+  if (event.key === "Escape" && !programDialog?.open && !formDialog?.open) {
     closeMenu();
     menuToggle.focus();
   }
@@ -70,7 +75,60 @@ if (programDialog && programDialogOpen && programDialogClose) {
     programDialogOpen.focus();
   });
 
-  programDialogChoose?.addEventListener("click", closeProgramDialog);
+  programDialogChoose?.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeProgramDialog();
+    window.setTimeout(
+      () => openFormDialog(programDialogChoose),
+      reducedMotion.matches ? 0 : 190,
+    );
+  });
+}
+
+function openFormDialog(trigger) {
+  if (!formDialog) return;
+  lastFormDialogTrigger = trigger;
+  formDialog.classList.remove("is-closing");
+  formDialog.showModal();
+}
+
+if (formDialog && formDialogClose) {
+  const closeFormDialog = () => {
+    if (!formDialog.open) return;
+
+    if (reducedMotion.matches) {
+      formDialog.close();
+      return;
+    }
+
+    formDialog.classList.add("is-closing");
+    window.clearTimeout(formDialogCloseTimer);
+    formDialogCloseTimer = window.setTimeout(() => formDialog.close(), 180);
+  };
+
+  formDialogOpeners.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openFormDialog(trigger);
+    });
+  });
+
+  formDialogClose.addEventListener("click", closeFormDialog);
+
+  formDialog.addEventListener("click", (event) => {
+    if (event.target === formDialog) closeFormDialog();
+  });
+
+  formDialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeFormDialog();
+  });
+
+  formDialog.addEventListener("close", () => {
+    window.clearTimeout(formDialogCloseTimer);
+    formDialog.classList.remove("is-closing");
+    lastFormDialogTrigger?.focus();
+  });
 }
 
 if (form && status) {
