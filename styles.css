@@ -360,25 +360,20 @@ select:focus-visible {
 
 .brand-watermark {
   position: absolute;
-  top: 58px;
-  left: 2px;
+  top: 22px;
+  left: -38px;
   z-index: 0;
-  width: clamp(170px, 19vw, 260px);
-  aspect-ratio: 34 / 28;
-  overflow: hidden;
-  opacity: 0.24;
+  width: clamp(190px, 23vw, 320px);
+  height: auto;
+  color: #f5f7fb;
+  opacity: 0.14;
+  transform: skewX(-8deg) rotate(-2deg);
   pointer-events: none;
-  mix-blend-mode: screen;
 }
 
-.brand-watermark img {
-  position: absolute;
-  top: -146.43%;
-  left: -179.41%;
-  width: 441.18%;
-  max-width: none;
-  height: auto;
-  filter: contrast(2.8) brightness(0.92);
+.brand-watermark__white,
+.brand-watermark__red {
+  fill: currentColor;
 }
 
 .section-heading {
