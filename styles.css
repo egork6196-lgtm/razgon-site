@@ -88,14 +88,36 @@ select {
   overflow: hidden;
 }
 
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 5px 7px;
+  border-radius: 50%;
+  background: rgba(255, 59, 77, 0.34);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
 .brand-mark img {
   position: absolute;
-  top: -31%;
-  left: -22.7%;
-  width: 155.3%;
+  top: -27%;
+  left: -21.5%;
+  width: 150%;
   max-width: none;
   height: auto;
   mix-blend-mode: screen;
+  transition: filter 180ms ease;
+}
+
+.brand:hover .brand-mark::before,
+.brand:focus-visible .brand-mark::before {
+  opacity: 1;
+}
+
+.brand:hover .brand-mark img,
+.brand:focus-visible .brand-mark img {
+  filter: brightness(1.28) saturate(1.12);
 }
 
 .demo-label,
