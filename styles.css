@@ -80,11 +80,22 @@ select {
   letter-spacing: 0.18em;
 }
 
-.brand img {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
-  border-radius: 50%;
+.brand-mark {
+  position: relative;
+  width: 64px;
+  height: 34px;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.brand-mark img {
+  position: absolute;
+  top: -31%;
+  left: -22.7%;
+  width: 155.3%;
+  max-width: none;
+  height: auto;
+  mix-blend-mode: screen;
 }
 
 .demo-label,
@@ -1204,8 +1215,15 @@ select:focus-visible {
 }
 
 @media (max-width: 520px) {
-  .brand span {
-    display: none;
+  .brand {
+    gap: 8px;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-mark {
+    width: 52px;
+    height: 28px;
   }
 
   .learning-form {
