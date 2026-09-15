@@ -72,6 +72,16 @@ select {
   display: none;
 }
 
+.header-branding,
+.header-socials {
+  display: flex;
+  align-items: center;
+}
+
+.header-branding {
+  gap: 12px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -96,6 +106,41 @@ select {
   object-fit: contain;
   mix-blend-mode: screen;
   transition: filter 180ms ease;
+}
+
+.header-socials {
+  gap: 8px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #aab1bc;
+}
+
+.social-icon svg {
+  width: 21px;
+  height: 21px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: color 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+
+.social-icon-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-icon:hover svg {
+  color: var(--white);
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 4px rgba(20, 108, 255, 0.72));
+  transform: translateY(-1px);
 }
 
 .brand:hover .brand-mark img,
@@ -1273,13 +1318,29 @@ select:focus-visible {
 
 @media (max-width: 520px) {
   .brand {
-    gap: 8px;
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
+    gap: 0;
   }
 
   .brand-mark {
-    width: 82px;
+    width: 72px;
+  }
+
+  .header-branding {
+    gap: 4px;
+  }
+
+  .header-socials {
+    gap: 2px;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social-icon svg {
+    width: 19px;
+    height: 19px;
   }
 
   .learning-form {
