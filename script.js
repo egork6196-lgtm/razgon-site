@@ -2,6 +2,10 @@ const form = document.querySelector("#learning-form");
 const status = document.querySelector("#form-status");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector("#site-nav");
+const programDialog = document.querySelector("#program-dialog");
+const programDialogOpen = document.querySelector("[data-program-dialog-open]");
+const programDialogClose = document.querySelector("[data-program-dialog-close]");
+const programDialogChoose = document.querySelector("[data-program-dialog-choose]");
 
 const closeMenu = () => {
   siteNav.classList.remove("is-open");
@@ -19,11 +23,30 @@ siteNav.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
+  if (event.key === "Escape" && !programDialog?.open) {
     closeMenu();
     menuToggle.focus();
   }
 });
+
+if (programDialog && programDialogOpen && programDialogClose) {
+  programDialogOpen.addEventListener("click", (event) => {
+    event.preventDefault();
+    programDialog.showModal();
+  });
+
+  programDialogClose.addEventListener("click", () => programDialog.close());
+
+  programDialog.addEventListener("click", (event) => {
+    if (event.target === programDialog) {
+      programDialog.close();
+    }
+  });
+
+  programDialog.addEventListener("close", () => programDialogOpen.focus());
+
+  programDialogChoose?.addEventListener("click", () => programDialog.close());
+}
 
 if (form && status) {
   form.addEventListener("submit", (event) => {

@@ -120,7 +120,7 @@
                 <li>Больше практических занятий</li>
                 <li>Разбор сложных ситуаций</li>
               </ul>
-              <a href="./program.html">Подробнее о программе</a>
+              <a href="./program.html" data-program-dialog-open aria-haspopup="dialog">Подробнее о программе</a>
             </article>
           </div>
         </section>
@@ -187,6 +187,42 @@
           </form>
         </section>
       </main>
+
+      <dialog id="program-dialog" class="program-dialog" aria-labelledby="program-dialog-title">
+        <div class="program-dialog-panel">
+          <button class="program-dialog-close" type="button" data-program-dialog-close aria-label="Закрыть информацию о программе">×</button>
+          <div class="program-dialog-intro">
+            <div>
+              <p class="eyebrow">Демонстрационная программа · категория B</p>
+              <h2 id="program-dialog-title">Уверенный<br /><span>маршрут</span></h2>
+              <p class="program-dialog-lead">
+                Расширенный учебный пример с дополнительной практикой. Содержание показывает
+                возможную структуру программы и не является реальным предложением автошколы.
+              </p>
+            </div>
+            <aside class="program-dialog-summary" aria-label="Кратко о программе">
+              <span>Учебный пример</span>
+              <strong>B</strong>
+              <p>Теория, практика и последовательная подготовка к экзамену.</p>
+            </aside>
+          </div>
+
+          <div class="program-dialog-content">
+            <p class="eyebrow">Что внутри</p>
+            <h3>Три части маршрута</h3>
+            <ol class="program-dialog-list">
+              <li><span>01</span><div><h4>Понятная теория</h4><p>Правила и дорожные ситуации без перегруженной подачи.</p></div></li>
+              <li><span>02</span><div><h4>Практика за рулём</h4><p>Последовательное освоение базовых действий и городских маршрутов.</p></div></li>
+              <li><span>03</span><div><h4>Подготовка к экзамену</h4><p>Повторение ключевых навыков и разбор типовых ситуаций.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="program-dialog-actions">
+            <p>Все сведения в окне демонстрационные.</p>
+            <a class="primary-action" href="#demo-form" data-program-dialog-choose>Выбрать программу</a>
+          </div>
+        </div>
+      </dialog>
 
       <footer class="site-footer">
         <div class="footer-brand">RAZGON</div>
