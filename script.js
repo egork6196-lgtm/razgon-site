@@ -6,6 +6,8 @@ const programDialog = document.querySelector("#program-dialog");
 const programDialogOpen = document.querySelector("[data-program-dialog-open]");
 const programDialogClose = document.querySelector("[data-program-dialog-close]");
 const programDialogChoose = document.querySelector("[data-program-dialog-choose]");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let dialogCloseTimer;
 
 const closeMenu = () => {
   siteNav.classList.remove("is-open");
@@ -30,22 +32,45 @@ document.addEventListener("keydown", (event) => {
 });
 
 if (programDialog && programDialogOpen && programDialogClose) {
+  const closeProgramDialog = () => {
+    if (!programDialog.open) return;
+
+    if (reducedMotion.matches) {
+      programDialog.close();
+      return;
+    }
+
+    programDialog.classList.add("is-closing");
+    window.clearTimeout(dialogCloseTimer);
+    dialogCloseTimer = window.setTimeout(() => programDialog.close(), 180);
+  };
+
   programDialogOpen.addEventListener("click", (event) => {
     event.preventDefault();
+    programDialog.classList.remove("is-closing");
     programDialog.showModal();
   });
 
-  programDialogClose.addEventListener("click", () => programDialog.close());
+  programDialogClose.addEventListener("click", closeProgramDialog);
 
   programDialog.addEventListener("click", (event) => {
     if (event.target === programDialog) {
-      programDialog.close();
+      closeProgramDialog();
     }
   });
 
-  programDialog.addEventListener("close", () => programDialogOpen.focus());
+  programDialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeProgramDialog();
+  });
 
-  programDialogChoose?.addEventListener("click", () => programDialog.close());
+  programDialog.addEventListener("close", () => {
+    window.clearTimeout(dialogCloseTimer);
+    programDialog.classList.remove("is-closing");
+    programDialogOpen.focus();
+  });
+
+  programDialogChoose?.addEventListener("click", closeProgramDialog);
 }
 
 if (form && status) {
