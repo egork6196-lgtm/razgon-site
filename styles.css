@@ -324,8 +324,8 @@ select:focus-visible {
   object-fit: cover;
   object-position: 50% 56%;
   filter: saturate(0.92) contrast(1.04) brightness(0.84);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.04) 18%, rgba(0, 0, 0, 0.25) 38%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0.92) 72%, #000 82%);
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.04) 18%, rgba(0, 0, 0, 0.25) 38%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0.92) 72%, #000 82%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 100%);
 }
 
 .hero-visual::before {
