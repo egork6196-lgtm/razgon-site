@@ -202,20 +202,6 @@ select {
   padding: 72px 0;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -80px;
-  bottom: 2%;
-  z-index: 0;
-  width: min(68vw, 820px);
-  height: 178px;
-  background: linear-gradient(94deg, rgba(20, 108, 255, 0.035), rgba(20, 108, 255, 0.24) 64%, rgba(255, 59, 77, 0.16));
-  clip-path: polygon(0 88%, 34% 53%, 39% 70%, 58% 21%, 64% 61%, 87% 0, 100% 28%, 68% 94%, 60% 49%, 40% 94%, 35% 76%, 0 100%);
-  pointer-events: none;
-  filter: drop-shadow(0 0 28px rgba(20, 108, 255, 0.12));
-}
-
 .hero > * {
   position: relative;
   z-index: 1;
@@ -348,66 +334,6 @@ select:focus-visible {
 
 .hero-visual::after {
   content: none;
-}
-
-.motion-mark {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: grid;
-  min-height: 0;
-  place-content: end;
-  padding: 34px;
-  isolation: isolate;
-}
-
-.motion-mark::before {
-  content: "";
-  position: absolute;
-  inset: 45% -12% -8% -18%;
-  z-index: -1;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(20, 108, 255, 0.04));
-  clip-path: polygon(24% 0, 100% 0, 76% 100%, 0 100%);
-}
-
-.motion-mark strong {
-  color: transparent;
-  font-size: clamp(7.5rem, 13vw, 10.5rem);
-  line-height: 0.8;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
-}
-
-.motion-mark small {
-  justify-self: end;
-  margin-top: 18px;
-  color: var(--white);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.35em;
-}
-
-.speed-line {
-  position: absolute;
-  width: 72%;
-  height: 12px;
-  transform: rotate(-18deg);
-  filter: blur(1px);
-}
-
-.speed-line-blue {
-  top: 25%;
-  right: -8%;
-  background: linear-gradient(90deg, transparent, var(--blue));
-  box-shadow: 0 0 30px var(--blue);
-}
-
-.speed-line-red {
-  right: 15%;
-  bottom: 22%;
-  width: 48%;
-  height: 7px;
-  background: linear-gradient(90deg, transparent, var(--red));
-  box-shadow: 0 0 22px rgba(255, 59, 77, 0.75);
 }
 
 .section,
@@ -1352,20 +1278,8 @@ select:focus-visible {
     width: 100%;
   }
 
-  .hero::after {
-    right: -150px;
-    bottom: 4%;
-    width: 480px;
-    height: 102px;
-    opacity: 0.72;
-  }
-
   h1 {
     font-size: clamp(2.7rem, 14vw, 5.3rem);
-  }
-
-  .motion-mark {
-    padding: 26px;
   }
 
   .hero-visual {
@@ -1380,10 +1294,6 @@ select:focus-visible {
     object-position: 50% 56%;
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%);
     mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%);
-  }
-
-  .motion-mark strong {
-    font-size: clamp(7rem, 34vw, 10rem);
   }
 
   .section {
