@@ -620,6 +620,103 @@ select:focus-visible {
   padding: 0 44px 26px 0;
 }
 
+.location {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  align-items: stretch;
+  gap: 56px;
+}
+
+.location-copy {
+  align-self: center;
+}
+
+.location-copy h2 {
+  margin-bottom: 30px;
+  font-size: clamp(2.6rem, 6vw, 5.3rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.location-address {
+  display: grid;
+  gap: 10px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-style: normal;
+}
+
+.location-address span {
+  color: var(--white);
+  font-size: 1.16rem;
+  font-weight: 800;
+}
+
+.location-address strong {
+  color: var(--blue);
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.location-note {
+  margin: 24px 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.location-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(20, 108, 255, 0.62);
+  color: var(--white);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.location-link:hover,
+.location-link:focus-visible {
+  border-color: #8ab7ff;
+  background: rgba(20, 108, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.location-map {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  border: 1px solid rgba(20, 108, 255, 0.5);
+  background: var(--graphite-800);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.location-map::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue) 0 72%, var(--red));
+  pointer-events: none;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: block;
+  border: 0;
+}
+
 .contact {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -1239,8 +1336,18 @@ select:focus-visible {
   .program-hero,
   .program-details,
   .faq,
+  .location,
   .contact {
     display: block;
+  }
+
+  .location-map {
+    min-height: 420px;
+    margin-top: 40px;
+  }
+
+  .location-map iframe {
+    min-height: 420px;
   }
 
   .program-hero {
