@@ -377,6 +377,22 @@ select:focus-visible {
   transform: scaleX(-1);
 }
 
+.section-intro {
+  border-top: 0;
+}
+
+.section-intro::before {
+  top: 0;
+  right: auto;
+  left: 0;
+  width: 42%;
+  height: 1px;
+  background: var(--line);
+  clip-path: none;
+  box-shadow: none;
+  transform: none;
+}
+
 .programs::after {
   content: "";
   position: absolute;
