@@ -133,11 +133,34 @@
             <p class="eyebrow">Как это работает</p>
             <h2 id="steps-title">Четыре этапа до уверенного старта</h2>
           </div>
+          <div class="steps-progress-start" aria-hidden="true"><span>0%</span></div>
           <ol class="steps-list">
-            <li><span>01</span><div><h3>Знакомство</h3><p>Определяем цель и учебный маршрут.</p></div></li>
-            <li><span>02</span><div><h3>Теория</h3><p>Разбираем правила и дорожные ситуации.</p></div></li>
-            <li><span>03</span><div><h3>Практика</h3><p>Переводим знания в уверенные действия.</p></div></li>
-            <li><span>04</span><div><h3>Подготовка</h3><p>Повторяем главное перед экзаменом.</p></div></li>
+            <li style="--step-progress: 25%;">
+              <span>01</span><div><h3>Знакомство</h3><p>Определяем цель и учебный маршрут.</p></div>
+              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">25%</span></div>
+            </li>
+            <li style="--step-progress: 50%;">
+              <span>02</span><div><h3>Теория</h3><p>Разбираем правила и дорожные ситуации.</p></div>
+              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">50%</span></div>
+            </li>
+            <li style="--step-progress: 75%;">
+              <span>03</span><div><h3>Практика</h3><p>Переводим знания в уверенные действия.</p></div>
+              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">75%</span></div>
+            </li>
+            <li class="step-complete" style="--step-progress: 100%;">
+              <span>04</span><div><h3>Подготовка</h3><p>Повторяем главное перед экзаменом.</p></div>
+              <div class="step-progress" aria-hidden="true">
+                <span class="step-progress-fill"></span>
+                <span class="step-progress-marker step-license" title="Водительское удостоверение получено">
+                  <svg viewBox="0 0 48 32" aria-hidden="true">
+                    <rect x="1" y="1" width="46" height="30" rx="5"></rect>
+                    <circle cx="13" cy="14" r="5"></circle>
+                    <path d="M6 25c1.8-4 4.1-6 7-6s5.2 2 7 6M25 10h14M25 16h10M25 22h7"></path>
+                    <path class="license-check" d="m35 23 3 3 6-7"></path>
+                  </svg>
+                </span>
+              </div>
+            </li>
           </ol>
         </section>
 
