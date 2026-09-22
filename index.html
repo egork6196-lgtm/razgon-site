@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Учебный прототип лендинга будущей автошколы Razgon."
+      content="Сайт автошколы Razgon."
     />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Razgon — учебный прототип</title>
+    <title>Razgon — автошкола</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body id="top">
     <div class="page-shell">
-      <header class="site-header">
+      <header class="site-header site-header-centered">
         <div class="header-branding">
           <a class="brand" href="#top" aria-label="Разгон — на главную">
-            <span class="brand-mark" aria-hidden="true"><img src="./assets/razgon-header-mark.png" alt="" /></span>
+            <span class="brand-mark brand-mark-full" aria-hidden="true"><img src="./assets/razgon-full-logo.jpg" alt="" /></span>
           </a>
-          <div class="header-socials" aria-label="Будущие способы связи">
+          <div class="header-socials" aria-label="Способы связи">
             <span class="social-icon" role="img" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle class="social-icon-dot" cx="17.4" cy="6.7" r="0.8" /></svg></span>
             <span class="social-icon" role="img" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.1 20 4.6c.8-.3 1.4.2 1.1 1.2l-2.8 13.1c-.2.9-.8 1.1-1.5.7l-4.3-3.2-2.1 2c-.2.2-.4.4-.8.4l.3-4.4 8-7.2c.3-.3-.1-.5-.5-.2l-9.9 6.2-4.3-1.3c-.9-.3-.9-.7.3-.8Z" /></svg></span>
             <span class="social-icon" role="img" aria-label="Телефон" title="Телефон"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.8 9.6 7c.4.6.3 1.3-.2 1.8L8 10.2a14.2 14.2 0 0 0 5.8 5.8l1.4-1.4c.5-.5 1.2-.6 1.8-.2l3.2 2.4c.6.4.8 1.2.5 1.8l-.7 1.6c-.3.7-1 1.1-1.8 1-8-.8-14.6-7.4-15.4-15.4-.1-.8.3-1.5 1-1.8l1.6-.7c.6-.3 1.4-.1 1.8.5Z" /></svg></span>
@@ -33,6 +33,7 @@
         </nav>
         <button
           class="menu-toggle"
+          aria-label="Меню"
           type="button"
           aria-expanded="false"
           aria-controls="site-nav"
@@ -43,24 +44,22 @@
             <span></span>
           </span>
         </button>
-        <a class="header-action" href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Начать</a>
       </header>
 
-      <main id="top">
+      <main>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Будущая автошкола нового ритма</p>
+            <p class="eyebrow">Автошкола нового ритма</p>
             <h1 id="hero-title">
               От первого занятия —<br />
               <span>к уверенности за рулём</span>
             </h1>
             <p class="hero-text">
-              Понятный путь к вождению в энергичном формате. Сейчас перед вами
-              демонстрационная версия будущего сайта.
+              Понятный путь к вождению в энергичном формате.
             </p>
             <div class="hero-actions">
               <a class="primary-action" href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Начать обучение</a>
-              <span>Демо · без отправки данных</span>
+              <span>Подробности будут добавлены</span>
             </div>
           </div>
 
@@ -92,43 +91,39 @@
             <article class="feature-card">
               <span class="feature-number">03</span>
               <h3>Свой темп</h3>
-              <p>Демонстрационный сценарий показывает гибкий и последовательный процесс.</p>
+              <p>Гибкий и последовательный процесс позволяет двигаться в комфортном темпе.</p>
             </article>
           </div>
         </section>
 
+        <div class="edge-accent edge-accent-right" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" /></div>
         <section id="programs" class="section programs" aria-labelledby="programs-title">
           <div class="section-heading section-heading-row">
             <div>
               <p class="eyebrow">Учебные программы</p>
               <h2 id="programs-title">Выберите точку старта</h2>
             </div>
-            <p class="section-note">Все варианты ниже — демонстрационные и не являются реальным предложением.</p>
           </div>
           <div class="program-grid">
-            <article class="program-card">
-              <span class="demo-tag">Демо</span>
-              <p class="program-code">B / START</p>
-              <h3>Первое обучение</h3>
-              <p>Базовый пример программы для тех, кто начинает с нуля.</p>
-              <ul>
-                <li>Теоретический блок</li>
-                <li>Практические занятия</li>
-                <li>Подготовка к экзамену</li>
-              </ul>
-              <a href="#demo-form" data-form-dialog-open aria-haspopup="dialog">Выбрать программу</a>
+            <article class="program-card tariff-card">
+              <img src="./assets/tariff-start.jpg" alt="Тариф Старт: 16 часов практики, комбинированная теория, внутренние экзамены, стоимость 25 900 рублей" loading="lazy" />
+              <button class="tariff-action" type="button" data-form-dialog-open data-program="Старт" aria-haspopup="dialog">Оставить заявку</button>
             </article>
-            <article class="program-card program-card-primary">
-              <span class="demo-tag">Демо · акцент</span>
-              <p class="program-code">B / DRIVE</p>
-              <h3>Уверенный маршрут</h3>
-              <p>Расширенный учебный пример с дополнительной практикой.</p>
-              <ul>
-                <li>Теория в понятном ритме</li>
-                <li>Больше практических занятий</li>
-                <li>Разбор сложных ситуаций</li>
-              </ul>
-              <a href="./program.html" data-program-dialog-open aria-haspopup="dialog">Подробнее о программе</a>
+            <article class="program-card tariff-card">
+              <img src="./assets/tariff-optima.jpg" alt="Тариф Оптима: 22 часа практики, очная или дистанционная теория, стоимость 29 900 рублей" loading="lazy" />
+              <button class="tariff-action" type="button" data-form-dialog-open data-program="Оптима" aria-haspopup="dialog">Оставить заявку</button>
+            </article>
+            <article class="program-card tariff-card">
+              <img src="./assets/tariff-praktik.jpg" alt="Тариф Практик: 32 часа практики, очная или дистанционная теория, стоимость 40 900 рублей" loading="lazy" />
+              <button class="tariff-action" type="button" data-form-dialog-open data-program="Практик" aria-haspopup="dialog">Оставить заявку</button>
+            </article>
+            <article class="program-card tariff-card">
+              <img src="./assets/tariff-standart.png" alt="Тариф Стандарт: 42 часа практики, очная или дистанционная теория, стоимость 48 900 рублей" loading="lazy" />
+              <button class="tariff-action" type="button" data-form-dialog-open data-program="Стандарт" aria-haspopup="dialog">Оставить заявку</button>
+            </article>
+            <article class="program-card tariff-card">
+              <img src="./assets/tariff-premium.jpg" alt="Тариф Премиум: 62 часа практики, очная или дистанционная теория, стоимость 58 900 рублей" loading="lazy" />
+              <button class="tariff-action" type="button" data-form-dialog-open data-program="Премиум" aria-haspopup="dialog">Оставить заявку</button>
             </article>
           </div>
         </section>
@@ -146,6 +141,55 @@
           </ol>
         </section>
 
+        <div class="edge-accent edge-accent-left" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" loading="lazy" /></div>
+        <section id="teachers" class="section upcoming-section" aria-labelledby="teachers-title">
+          <div class="section-heading">
+            <p class="eyebrow">Команда</p>
+            <h2 id="teachers-title">Преподаватели</h2>
+          </div>
+          <div class="upcoming-panel">
+            <span class="upcoming-status">Раздел готовится</span>
+            <h3>Знакомство с командой — скоро</h3>
+            <p>Готовим фотографии и информацию о преподавателях и инструкторах.</p>
+          </div>
+        </section>
+
+        <section id="fleet" class="section upcoming-section" aria-labelledby="fleet-title">
+          <div class="section-heading">
+            <p class="eyebrow">Учебные автомобили</p>
+            <h2 id="fleet-title">Автопарк</h2>
+          </div>
+          <div class="upcoming-panel">
+            <span class="upcoming-status">Раздел готовится</span>
+            <h3>Автомобили для обучения</h3>
+            <p>Здесь появятся фотографии автомобилей, модели и типы коробок передач.</p>
+          </div>
+        </section>
+
+        <section id="reviews" class="section upcoming-section" aria-labelledby="reviews-title">
+          <div class="section-heading">
+            <p class="eyebrow">Опыт учеников</p>
+            <h2 id="reviews-title">Отзывы</h2>
+          </div>
+          <div class="upcoming-panel">
+            <span class="upcoming-status">Раздел готовится</span>
+            <h3>Здесь будут отзывы учеников</h3>
+            <p>Добавим реальные отзывы и ссылки на источники после получения материалов.</p>
+          </div>
+        </section>
+
+        <section id="promotions" class="section upcoming-section" aria-labelledby="promotions-title">
+          <div class="section-heading">
+            <p class="eyebrow">Предложения школы</p>
+            <h2 id="promotions-title">Акции</h2>
+          </div>
+          <div class="upcoming-panel">
+            <span class="upcoming-status">Раздел готовится</span>
+            <h3>Информация об акциях готовится</h3>
+            <p>Условия и сроки предложений появятся после подтверждения автошколой.</p>
+          </div>
+        </section>
+
         <section id="faq" class="section faq" aria-labelledby="faq-title">
           <img
             class="brand-watermark"
@@ -155,20 +199,20 @@
           />
           <div class="section-heading">
             <p class="eyebrow">Частые вопросы</p>
-            <h2 id="faq-title">Коротко о прототипе</h2>
+            <h2 id="faq-title">Вопросы и ответы</h2>
           </div>
           <div class="faq-list">
             <details>
-              <summary>Это сайт действующей автошколы?</summary>
-              <p>Нет. Это учебный прототип будущего проекта Razgon.</p>
+              <summary>Информация об автошколе</summary>
+              <p>Ответ будет добавлен после получения материалов заказчика.</p>
             </details>
             <details>
-              <summary>Можно ли сейчас записаться на обучение?</summary>
-              <p>Нет. Всплывающая форма демонстрирует интерфейс и ничего не отправляет.</p>
+              <summary>Запись на обучение</summary>
+              <p>Условия записи будут добавлены после подключения формы.</p>
             </details>
             <details>
-              <summary>Указанные программы уже утверждены?</summary>
-              <p>Нет. Названия и содержание используются только как учебные примеры.</p>
+              <summary>Учебные программы</summary>
+              <p>Состав программ будет заполнен по подтверждённым материалам заказчика.</p>
             </details>
           </div>
         </section>
@@ -182,7 +226,7 @@
               <strong>Офис 1001 · 10 этаж</strong>
             </address>
             <p class="location-note">
-              Адрес добавлен для демонстрации раздела с интерактивной картой в учебном прототипе.
+              Подробная информация о филиале будет добавлена позднее.
             </p>
             <a
               class="location-link"
@@ -193,11 +237,17 @@
               Открыть в Яндекс Картах <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <div class="location-map">
+          <div class="location-map" data-map-container>
+            <div class="location-map-status" aria-live="polite">
+              <span data-map-status>Загружаем интерактивную карту…</span>
+              <button type="button" data-map-retry>Повторить загрузку</button>
+            </div>
             <iframe
-              src="https://yandex.ru/map-widget/v1/?mode=search&amp;text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2046%D0%90&amp;z=16"
+              src="about:blank"
+              data-map-src="https://yandex.ru/map-widget/v1/?mode=search&amp;text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2046%D0%90&amp;z=16"
               title="Яндекс Карта: Екатеринбург, улица Крестинского, дом 46А"
-              loading="lazy"
+              loading="eager"
+              referrerpolicy="no-referrer-when-downgrade"
               allowfullscreen
             ></iframe>
           </div>
@@ -205,12 +255,12 @@
 
         <section id="demo-form" class="section contact" aria-labelledby="contact-title">
           <div class="contact-copy">
-            <p class="eyebrow">Демонстрационная запись</p>
+            <p class="eyebrow">Запись на обучение</p>
             <h2 id="contact-title">Готовы начать?</h2>
-            <p>Откройте тестовую форму, чтобы увидеть новый сценарий. Не вводите реальные персональные данные.</p>
+            <p>Форма готовится к подключению. Данные пока не отправляются.</p>
           </div>
           <div class="contact-launch-card">
-            <span>Демо · данные не отправляются</span>
+            <span>Отправка будет подключена позднее</span>
             <button class="primary-action" type="button" data-form-dialog-open aria-haspopup="dialog">
               Открыть форму
             </button>
@@ -218,76 +268,57 @@
         </section>
       </main>
 
-      <dialog id="program-dialog" class="program-dialog" aria-labelledby="program-dialog-title">
-        <div class="program-dialog-panel">
-          <button class="program-dialog-close" type="button" data-program-dialog-close aria-label="Закрыть информацию о программе">×</button>
-          <div class="program-dialog-intro">
-            <div>
-              <p class="eyebrow">Демонстрационная программа · категория B</p>
-              <h2 id="program-dialog-title">Уверенный<br /><span>маршрут</span></h2>
-              <p class="program-dialog-lead">
-                Расширенный учебный пример с дополнительной практикой. Содержание показывает
-                возможную структуру программы и не является реальным предложением автошколы.
-              </p>
-            </div>
-            <aside class="program-dialog-summary" aria-label="Кратко о программе">
-              <span>Учебный пример</span>
-              <strong>B</strong>
-              <p>Теория, практика и последовательная подготовка к экзамену.</p>
-            </aside>
-          </div>
-
-          <div class="program-dialog-content">
-            <p class="eyebrow">Что внутри</p>
-            <h3>Три части маршрута</h3>
-            <ol class="program-dialog-list">
-              <li><span>01</span><div><h4>Понятная теория</h4><p>Правила и дорожные ситуации без перегруженной подачи.</p></div></li>
-              <li><span>02</span><div><h4>Практика за рулём</h4><p>Последовательное освоение базовых действий и городских маршрутов.</p></div></li>
-              <li><span>03</span><div><h4>Подготовка к экзамену</h4><p>Повторение ключевых навыков и разбор типовых ситуаций.</p></div></li>
-            </ol>
-          </div>
-
-          <div class="program-dialog-actions">
-            <p>Все сведения в окне демонстрационные.</p>
-            <a class="primary-action" href="#demo-form" data-program-dialog-choose data-form-dialog-open aria-haspopup="dialog">Выбрать программу</a>
-          </div>
-        </div>
-      </dialog>
+      <div class="lower-page-art" aria-hidden="true">
+        <img src="./assets/razgon-flag-print.png" alt="" loading="lazy" />
+      </div>
 
       <dialog id="form-dialog" class="program-dialog form-dialog" aria-labelledby="form-dialog-title">
         <div class="program-dialog-panel form-dialog-panel">
           <button class="program-dialog-close" type="button" data-form-dialog-close aria-label="Закрыть форму">×</button>
           <div class="form-dialog-heading">
-            <p class="eyebrow">Демонстрационная запись</p>
-            <h2 id="form-dialog-title">Начать обучение</h2>
-            <p>Заполните тестовые поля. Реальные данные не нужны и никуда не отправляются.</p>
+            <p class="eyebrow">Форма обратной связи</p>
+            <h2 id="form-dialog-title">Оставьте свои данные</h2>
+            <p>Отправка данных будет подключена позднее.</p>
           </div>
 
           <form id="learning-form" class="learning-form" novalidate>
-            <label for="name">Учебное имя</label>
+            <label for="name">Имя</label>
             <input id="name" name="name" type="text" placeholder="Например, Анна" required />
 
-            <label for="contact">Учебный контакт</label>
-            <input id="contact" name="contact" type="text" placeholder="Например, demo@example.test" required />
+            <label for="contact">Телефон или электронная почта</label>
+            <input id="contact" name="contact" type="text" placeholder="Будет подключено позднее" required />
 
             <label for="program">Программа</label>
             <select id="program" name="program">
-              <option>Первое обучение — демо</option>
-              <option>Уверенный маршрут — демо</option>
+              <option>Старт</option>
+              <option>Оптима</option>
+              <option>Практик</option>
+              <option>Стандарт</option>
+              <option>Премиум</option>
             </select>
 
-            <button type="submit">Проверить форму</button>
+            <button type="submit">Оставить заявку</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
           </form>
         </div>
       </dialog>
 
-      <footer class="site-footer">
-        <div class="footer-brand">RAZGON</div>
-        <p>Учебная версия. Не является официальным сайтом действующей организации.</p>
+      <footer class="site-footer" id="footer">
+        <a class="brand footer-brand" href="./index.html#top" aria-label="Разгон — на главную">
+          <span class="brand-mark" aria-hidden="true"><img src="./assets/razgon-header-mark.png" alt="" /></span>
+        </a>
+        <div class="footer-info">
+          <nav class="footer-links" aria-label="Документы">
+            <a href="./privacy.html">Конфиденциальность</a>
+            <a href="./terms.html">Условия использования</a>
+            <a href="./offer.html">Публичная оферта</a>
+          </nav>
+          <p>Сайт находится в процессе наполнения.</p>
+        </div>
         <a href="#top">Наверх ↑</a>
       </footer>
     </div>
     <script src="./script.js"></script>
+    <script src="./scroll-reveal.js"></script>
   </body>
 </html>

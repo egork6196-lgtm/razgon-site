@@ -2,17 +2,19 @@ const form = document.querySelector("#learning-form");
 const status = document.querySelector("#form-status");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector("#site-nav");
-const programDialog = document.querySelector("#program-dialog");
-const programDialogOpen = document.querySelector("[data-program-dialog-open]");
-const programDialogClose = document.querySelector("[data-program-dialog-close]");
-const programDialogChoose = document.querySelector("[data-program-dialog-choose]");
 const formDialog = document.querySelector("#form-dialog");
-const formDialogOpeners = document.querySelectorAll("[data-form-dialog-open]:not([data-program-dialog-choose])");
+const formDialogOpeners = document.querySelectorAll("[data-form-dialog-open]");
 const formDialogClose = document.querySelector("[data-form-dialog-close]");
+const programSelect = document.querySelector("#program");
+const mapContainer = document.querySelector("[data-map-container]");
+const mapFrame = mapContainer?.querySelector("iframe[data-map-src]");
+const mapStatus = mapContainer?.querySelector("[data-map-status]");
+const mapRetry = mapContainer?.querySelector("[data-map-retry]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let dialogCloseTimer;
 let formDialogCloseTimer;
 let lastFormDialogTrigger;
+let mapLoadTimer;
+let mapAttempts = 0;
 
 const closeMenu = () => {
   siteNav.classList.remove("is-open");
@@ -30,60 +32,11 @@ siteNav.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !programDialog?.open && !formDialog?.open) {
+  if (event.key === "Escape" && !formDialog?.open) {
     closeMenu();
     menuToggle.focus();
   }
 });
-
-if (programDialog && programDialogOpen && programDialogClose) {
-  const closeProgramDialog = () => {
-    if (!programDialog.open) return;
-
-    if (reducedMotion.matches) {
-      programDialog.close();
-      return;
-    }
-
-    programDialog.classList.add("is-closing");
-    window.clearTimeout(dialogCloseTimer);
-    dialogCloseTimer = window.setTimeout(() => programDialog.close(), 180);
-  };
-
-  programDialogOpen.addEventListener("click", (event) => {
-    event.preventDefault();
-    programDialog.classList.remove("is-closing");
-    programDialog.showModal();
-  });
-
-  programDialogClose.addEventListener("click", closeProgramDialog);
-
-  programDialog.addEventListener("click", (event) => {
-    if (event.target === programDialog) {
-      closeProgramDialog();
-    }
-  });
-
-  programDialog.addEventListener("cancel", (event) => {
-    event.preventDefault();
-    closeProgramDialog();
-  });
-
-  programDialog.addEventListener("close", () => {
-    window.clearTimeout(dialogCloseTimer);
-    programDialog.classList.remove("is-closing");
-    programDialogOpen.focus();
-  });
-
-  programDialogChoose?.addEventListener("click", (event) => {
-    event.preventDefault();
-    closeProgramDialog();
-    window.setTimeout(
-      () => openFormDialog(programDialogChoose),
-      reducedMotion.matches ? 0 : 190,
-    );
-  });
-}
 
 function openFormDialog(trigger) {
   if (!formDialog) return;
@@ -109,6 +62,9 @@ if (formDialog && formDialogClose) {
   formDialogOpeners.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
+      if (trigger.dataset.program && programSelect) {
+        programSelect.value = trigger.dataset.program;
+      }
       openFormDialog(trigger);
     });
   });
@@ -136,13 +92,63 @@ if (form && status) {
     event.preventDefault();
 
     if (!form.checkValidity()) {
-      status.textContent = "Заполните оба учебных поля.";
+      status.textContent = "Заполните оба поля.";
       status.className = "form-status form-status-error";
       form.reportValidity();
       return;
     }
 
-    status.textContent = "Готово! Это демонстрация: данные никуда не отправлены.";
+    status.textContent = "Отправка формы будет подключена позднее.";
     status.className = "form-status form-status-success";
   });
+}
+
+if (mapContainer && mapFrame && mapStatus && mapRetry) {
+  const loadMap = () => {
+    window.clearTimeout(mapLoadTimer);
+    mapAttempts += 1;
+    mapContainer.classList.remove("is-loaded", "has-error");
+    mapStatus.textContent = "Загружаем интерактивную карту…";
+
+    const separator = mapFrame.dataset.mapSrc.includes("?") ? "&" : "?";
+    mapFrame.src = `${mapFrame.dataset.mapSrc}${separator}attempt=${mapAttempts}`;
+
+    mapLoadTimer = window.setTimeout(() => {
+      if (mapContainer.classList.contains("is-loaded")) return;
+      if (mapAttempts < 2) {
+        loadMap();
+        return;
+      }
+      mapContainer.classList.add("has-error");
+      mapStatus.textContent = "Карта не загрузилась. Попробуйте ещё раз.";
+    }, 9000);
+  };
+
+  mapFrame.addEventListener("load", () => {
+    if (mapFrame.src === "about:blank") return;
+    window.clearTimeout(mapLoadTimer);
+    mapContainer.classList.add("is-loaded");
+    mapContainer.classList.remove("has-error");
+  });
+
+  mapFrame.addEventListener("error", () => {
+    window.clearTimeout(mapLoadTimer);
+    if (mapAttempts < 2) loadMap();
+  });
+
+  mapRetry.addEventListener("click", () => {
+    mapAttempts = 0;
+    loadMap();
+  });
+
+  if ("IntersectionObserver" in window) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      mapObserver.disconnect();
+      loadMap();
+    }, { rootMargin: "1200px 0px" });
+    mapObserver.observe(mapContainer);
+  } else {
+    loadMap();
+  }
 }
