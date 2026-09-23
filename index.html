@@ -65,8 +65,8 @@
 
           <div class="hero-visual">
             <img
-              src="./assets/razgon-car-hero.png"
-              alt="Автомобиль Razgon на фоне Екатеринбурга"
+              src="./assets/razgon-car-hero-white.jpg"
+              alt="Белый учебный автомобиль Razgon на фоне Екатеринбурга"
               fetchpriority="high"
             />
           </div>
@@ -97,7 +97,12 @@
         </section>
 
         <div class="edge-accent edge-accent-right" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" /></div>
-        <section id="programs" class="section programs" aria-labelledby="programs-title">
+        <section id="programs" class="section programs has-section-divider" aria-labelledby="programs-title">
+          <div class="section-divider divider-car" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="car-trail"></span>
+            <img class="divider-icon" src="./assets/car-divider.png" alt="" />
+          </div>
           <div class="section-heading section-heading-row">
             <div>
               <p class="eyebrow">Учебные программы</p>
@@ -128,12 +133,32 @@
           </div>
         </section>
 
-        <section id="steps" class="section steps" aria-labelledby="steps-title">
+        <section id="steps" class="section steps has-section-divider" aria-labelledby="steps-title">
+          <div class="section-divider divider-road-sign" aria-hidden="true">
+            <svg class="road-route" viewBox="0 0 1000 90" preserveAspectRatio="none">
+              <path class="road-border" d="M-20 58C150 18 302 75 470 51S770 20 1020 54"></path>
+              <path class="road-surface" d="M-20 58C150 18 302 75 470 51S770 20 1020 54"></path>
+              <path class="road-marking" d="M-20 58C150 18 302 75 470 51S770 20 1020 54"></path>
+            </svg>
+            <svg class="divider-icon road-sign-icon" viewBox="0 0 64 92">
+              <path class="sign-post" d="M32 48v40M24 88h16"></path>
+              <rect class="sign-outer" x="12" y="8" width="40" height="40" rx="2" transform="rotate(45 32 28)"></rect>
+              <rect class="sign-inner" x="18" y="14" width="28" height="28" rx="1" transform="rotate(45 32 28)"></rect>
+            </svg>
+          </div>
           <div class="section-heading">
             <p class="eyebrow">Как это работает</p>
             <h2 id="steps-title">Четыре этапа до уверенного старта</h2>
           </div>
-          <div class="steps-progress-start" aria-hidden="true"><span>0%</span></div>
+          <div class="steps-progress-start" aria-hidden="true">
+            <span>
+              <svg class="route-start-pin" viewBox="0 0 20 24">
+                <path d="M10 22s7-7.2 7-13A7 7 0 1 0 3 9c0 5.8 7 13 7 13Z"></path>
+                <circle cx="10" cy="9" r="2.5"></circle>
+              </svg>
+              <b>0%</b>
+            </span>
+          </div>
           <ol class="steps-list">
             <li style="--step-progress: 25%;">
               <span>01</span><div><h3>Знакомство</h3><p>Определяем цель и учебный маршрут.</p></div>
@@ -166,6 +191,7 @@
 
         <div class="edge-accent edge-accent-left" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" loading="lazy" /></div>
         <section id="teachers" class="section upcoming-section" aria-labelledby="teachers-title">
+          <img class="section-letter section-letter-r" src="./assets/razgon-letter-r-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Команда</p>
             <h2 id="teachers-title">Преподаватели</h2>
@@ -178,6 +204,7 @@
         </section>
 
         <section id="fleet" class="section upcoming-section" aria-labelledby="fleet-title">
+          <img class="section-letter section-letter-a" src="./assets/razgon-letter-a-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Учебные автомобили</p>
             <h2 id="fleet-title">Автопарк</h2>
@@ -190,6 +217,7 @@
         </section>
 
         <section id="reviews" class="section upcoming-section" aria-labelledby="reviews-title">
+          <img class="section-letter section-letter-z" src="./assets/razgon-letter-z-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Опыт учеников</p>
             <h2 id="reviews-title">Отзывы</h2>
@@ -202,6 +230,7 @@
         </section>
 
         <section id="promotions" class="section upcoming-section" aria-labelledby="promotions-title">
+          <img class="section-letter section-letter-g" src="./assets/razgon-letter-g-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Предложения школы</p>
             <h2 id="promotions-title">Акции</h2>
@@ -214,12 +243,7 @@
         </section>
 
         <section id="faq" class="section faq" aria-labelledby="faq-title">
-          <img
-            class="brand-watermark"
-            src="./assets/razgon-watermark-exact.png"
-            alt=""
-            aria-hidden="true"
-          />
+          <img class="section-letter section-letter-o" src="./assets/razgon-letter-o-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Частые вопросы</p>
             <h2 id="faq-title">Вопросы и ответы</h2>
@@ -239,6 +263,10 @@
             </details>
           </div>
         </section>
+
+        <div class="letter-break" aria-hidden="true">
+          <img class="section-letter section-letter-n" src="./assets/razgon-letter-n-outline.png" alt="" loading="lazy" />
+        </div>
 
         <section id="location" class="section location" aria-labelledby="location-title">
           <div class="location-copy">
@@ -276,7 +304,15 @@
           </div>
         </section>
 
-        <section id="demo-form" class="section contact" aria-labelledby="contact-title">
+        <section id="demo-form" class="section contact has-section-divider" aria-labelledby="contact-title">
+          <div class="section-divider divider-finish" aria-hidden="true">
+            <svg class="finish-ribbon" viewBox="0 0 1000 90" preserveAspectRatio="none">
+              <path class="ribbon-edge" d="M-20 50C100 12 225 73 352 42S600 17 728 47 878 76 1020 29"></path>
+              <path class="ribbon-dark" d="M-20 50C100 12 225 73 352 42S600 17 728 47 878 76 1020 29"></path>
+              <path class="ribbon-light ribbon-light-top" d="M-20 50C100 12 225 73 352 42S600 17 728 47 878 76 1020 29" transform="translate(0 -4.5)"></path>
+              <path class="ribbon-light ribbon-light-bottom" d="M-20 50C100 12 225 73 352 42S600 17 728 47 878 76 1020 29" transform="translate(0 4.5)"></path>
+            </svg>
+          </div>
           <div class="contact-copy">
             <p class="eyebrow">Запись на обучение</p>
             <h2 id="contact-title">Готовы начать?</h2>

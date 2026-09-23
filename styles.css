@@ -394,6 +394,7 @@ select:focus-visible {
   overflow: hidden;
   isolation: isolate;
   border: 0;
+  border-radius: 0 0 0 58% / 0 0 0 56%;
   background: transparent;
   box-shadow: none;
   pointer-events: none;
@@ -406,10 +407,8 @@ select:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 56%;
-  filter: saturate(0.92) contrast(1.04) brightness(0.84);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 100%);
+  object-position: 52% 54%;
+  filter: saturate(0.9) contrast(1.04) brightness(0.78);
 }
 
 .hero-visual::before {
@@ -417,7 +416,14 @@ select:focus-visible {
 }
 
 .hero-visual::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, var(--graphite-950) 0%, rgba(23, 25, 29, 0.98) 7%, rgba(23, 25, 29, 0.82) 17%, rgba(23, 25, 29, 0.42) 28%, transparent 43%),
+    linear-gradient(0deg, var(--graphite-950) 0%, rgba(23, 25, 29, 0.96) 7%, rgba(23, 25, 29, 0.68) 15%, rgba(23, 25, 29, 0.24) 23%, transparent 32%);
 }
 
 .section,
@@ -430,20 +436,12 @@ select:focus-visible {
   position: relative;
   isolation: isolate;
   padding: 112px 0;
-  border-top: 1px solid var(--line);
+  border-top: 0;
+  scroll-margin-top: 42px;
 }
 
 .section::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 0;
-  z-index: 2;
-  width: clamp(110px, 16vw, 190px);
-  height: 9px;
-  background: linear-gradient(90deg, var(--blue) 0 68%, transparent 68% 74%, var(--red) 74% 100%);
-  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
-  box-shadow: 0 0 24px rgba(20, 108, 255, 0.34);
+  content: none;
 }
 
 .section::after {
@@ -455,10 +453,163 @@ select:focus-visible {
   z-index: 1;
 }
 
-.section:nth-of-type(odd)::before {
-  right: auto;
+.section-divider {
+  position: absolute;
+  top: -22px;
+  right: 0;
   left: 0;
-  transform: scaleX(-1);
+  z-index: 2;
+  height: 44px;
+  pointer-events: none;
+}
+
+.section-divider .divider-line {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgba(190, 197, 208, 0.22);
+}
+
+.section-divider .divider-icon {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  box-sizing: content-box;
+  background: var(--graphite-950);
+  transform: translate(-50%, -50%);
+}
+
+.divider-car .divider-icon {
+  left: 80%;
+  width: 92px;
+  padding: 0;
+  background: transparent;
+  filter: brightness(0) invert(1) opacity(0.88) drop-shadow(0 0 5px rgba(20, 108, 255, 0.28));
+  transform: translate(-50%, -69%);
+}
+
+.divider-car .car-trail {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 48%;
+  right: calc(20% + 28px);
+  z-index: 1;
+  width: auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(20, 108, 255, 0.18) 18%, rgba(20, 108, 255, 0.82) 78%, rgba(245, 45, 58, 0.76));
+  box-shadow: 0 0 12px rgba(20, 108, 255, 0.34);
+}
+
+.divider-car .divider-line {
+  right: 0;
+}
+
+.divider-road-sign {
+  top: -42px;
+  height: 84px;
+}
+
+.divider-road-sign .road-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.divider-road-sign .road-border,
+.divider-road-sign .road-surface,
+.divider-road-sign .road-marking {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.divider-road-sign .road-border {
+  stroke: rgba(190, 197, 208, 0.34);
+  stroke-width: 22;
+}
+
+.divider-road-sign .road-surface {
+  stroke: #242831;
+  stroke-width: 19;
+}
+
+.divider-road-sign .road-marking {
+  stroke: rgba(220, 225, 234, 0.68);
+  stroke-width: 1.5;
+  stroke-dasharray: 18 17;
+}
+
+.divider-road-sign .divider-icon {
+  top: 50%;
+  left: 55%;
+  width: 46px;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+  filter: drop-shadow(0 0 8px rgba(20, 108, 255, 0.22));
+  transform: translate(-50%, -85%);
+}
+
+.divider-road-sign .sign-outer {
+  fill: #f5f7fa;
+  stroke: #111318;
+  stroke-width: 2;
+}
+
+.divider-road-sign .sign-inner {
+  fill: #e8bc3b;
+  stroke: #111318;
+  stroke-width: 1.5;
+}
+
+.divider-road-sign .sign-post {
+  fill: none;
+  stroke: #c4cad4;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.divider-finish {
+  top: -38px;
+  height: 76px;
+}
+
+.divider-finish .finish-ribbon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.divider-finish .ribbon-edge,
+.divider-finish .ribbon-dark,
+.divider-finish .ribbon-light {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.divider-finish .ribbon-edge {
+  stroke: rgba(190, 197, 208, 0.42);
+  stroke-width: 22;
+}
+
+.divider-finish .ribbon-dark {
+  stroke: #101216;
+  stroke-width: 18;
+}
+
+.divider-finish .ribbon-light {
+  stroke: #f1f3f6;
+  stroke-width: 8;
+  stroke-dasharray: 12 12;
+}
+
+.divider-finish .ribbon-light-bottom {
+  stroke-dashoffset: 12;
 }
 
 .section-intro {
@@ -469,16 +620,49 @@ select:focus-visible {
   content: none;
 }
 
-.brand-watermark {
+.section-letter {
   position: absolute;
-  top: 22px;
-  left: -38px;
   z-index: 0;
   display: block;
-  width: clamp(220px, 26vw, 360px);
+  width: clamp(250px, 29vw, 460px);
   height: auto;
-  opacity: 0.58;
+  overflow: visible;
+  opacity: 0.34;
   pointer-events: none;
+  user-select: none;
+}
+
+.section > .section-letter {
+  position: absolute;
+  z-index: 0;
+}
+
+.section-letter-r,
+.section-letter-a,
+.section-letter-z,
+.section-letter-g,
+.section-letter-o {
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+
+.section-letter-r {
+  width: clamp(270px, 31vw, 500px);
+}
+
+.letter-break {
+  position: relative;
+  z-index: 0;
+  height: clamp(150px, 14vw, 230px);
+  overflow: hidden;
+}
+
+.letter-break .section-letter-n {
+  top: 50%;
+  left: 2%;
+  width: clamp(280px, 34vw, 520px);
+  transform: translateY(-50%);
 }
 
 .section-heading {
@@ -866,14 +1050,15 @@ select:focus-visible {
 
 .steps-progress-start {
   position: relative;
-  height: 28px;
-  border-bottom: 1px solid var(--line);
+  height: 38px;
+  border-bottom: 0;
+  box-shadow: none;
 }
 
 .steps-progress-start span,
 .step-progress-marker {
   color: #8ab7ff;
-  background: var(--graphite-950);
+  background: var(--graphite-900);
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -881,16 +1066,36 @@ select:focus-visible {
 
 .steps-progress-start span {
   position: absolute;
-  bottom: 7px;
+  bottom: 10px;
   left: 0;
-  padding-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px 4px 5px;
+  border: 1px solid rgba(20, 108, 255, 0.62);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(20, 108, 255, 0.2);
+}
+
+.steps-progress-start b {
+  font: inherit;
+}
+
+.route-start-pin {
+  width: 15px;
+  height: 18px;
+  fill: rgba(20, 108, 255, 0.12);
+  stroke: var(--blue);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
 }
 
 .steps-progress-start span::after,
 .step-progress-marker::after {
   content: "";
   position: absolute;
-  bottom: -12px;
+  bottom: -14px;
   left: 50%;
   width: 8px;
   height: 8px;
@@ -902,8 +1107,9 @@ select:focus-visible {
 }
 
 .steps-progress-start span::after {
+  bottom: -15px;
   left: 0;
-  transform: none;
+  transform: translateX(-50%);
 }
 
 .step-progress {
@@ -911,29 +1117,62 @@ select:focus-visible {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 1px;
-  background: var(--line);
+  height: 5px;
+  background: transparent;
+  box-shadow: none;
 }
 
 .step-progress-fill {
   position: absolute;
   inset: 0 auto auto 0;
   width: var(--step-progress);
-  height: 3px;
-  background: linear-gradient(90deg, rgba(20, 108, 255, 0.45), var(--blue));
+  height: 5px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(20, 108, 255, 0.55), var(--blue));
   box-shadow: 0 0 18px rgba(20, 108, 255, 0.32);
+}
+
+.step-progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0 10px, transparent 10px 18px);
+  opacity: 0.72;
 }
 
 .step-progress-marker {
   position: absolute;
-  bottom: 8px;
+  bottom: 6px;
   left: var(--step-progress);
-  padding: 0 5px;
+  min-width: 46px;
+  padding: 5px 8px;
+  border: 1px solid rgba(20, 108, 255, 0.72);
+  border-radius: 5px 5px 2px 2px;
+  text-align: center;
+  box-shadow: 0 0 18px rgba(20, 108, 255, 0.2);
   transform: translateX(-50%);
 }
 
+.step-progress-marker::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 2px;
+  height: 5px;
+  background: var(--blue);
+  transform: translateX(-50%);
+}
+
+.step-progress-marker::after {
+  bottom: -9px;
+}
+
 .step-license {
-  bottom: 7px;
+  bottom: 11px;
   left: 100%;
   display: grid;
   width: 52px;
@@ -948,6 +1187,10 @@ select:focus-visible {
 }
 
 .step-license::after {
+  content: none;
+}
+
+.step-license::before {
   content: none;
 }
 
@@ -1792,18 +2035,30 @@ select:focus-visible {
     font-size: clamp(2.7rem, 14vw, 5.3rem);
   }
 
+  .hero h1 {
+    max-width: 8.8em;
+    font-size: clamp(2.15rem, 10vw, 3.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
   .hero-visual {
     position: relative;
     inset: auto;
-    width: calc(100% + 32px);
+    width: calc(100% + 16px);
     min-height: 520px;
-    margin: 20px 0 0 -16px;
+    margin: 20px -16px 0 0;
+    border-radius: 0 0 0 58% / 0 0 0 42%;
   }
 
   .hero-visual > img {
-    object-position: 50% 56%;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%);
-    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%);
+    object-position: 54% 52%;
+  }
+
+  .hero-visual::after {
+    background:
+      linear-gradient(90deg, var(--graphite-950) 0%, rgba(23, 25, 29, 0.9) 8%, rgba(23, 25, 29, 0.42) 22%, transparent 36%),
+      linear-gradient(0deg, var(--graphite-950) 0%, rgba(23, 25, 29, 0.92) 8%, rgba(23, 25, 29, 0.48) 19%, transparent 31%);
   }
 
   .section {
@@ -1811,8 +2066,71 @@ select:focus-visible {
   }
 
   .section::before {
-    width: 118px;
-    height: 7px;
+    content: none;
+  }
+
+  .section-divider {
+    top: -18px;
+    height: 36px;
+  }
+
+  .divider-car .divider-icon {
+    left: 76%;
+    width: 74px;
+  }
+
+  .divider-car .car-trail {
+    left: 36%;
+    right: calc(24% + 22px);
+    width: auto;
+  }
+
+  .divider-car .divider-line {
+    right: 0;
+  }
+
+  .divider-road-sign .divider-icon {
+    left: 58%;
+    width: 38px;
+  }
+
+  .divider-road-sign {
+    top: -30px;
+    height: 60px;
+  }
+
+  .divider-road-sign .road-border {
+    stroke-width: 17;
+  }
+
+  .divider-road-sign .road-surface {
+    stroke-width: 14;
+  }
+
+  .divider-road-sign .road-marking {
+    stroke-dasharray: 12 12;
+  }
+
+  .divider-finish {
+    top: -28px;
+    height: 56px;
+  }
+
+  .divider-finish .ribbon-edge {
+    stroke-width: 18;
+  }
+
+  .divider-finish .ribbon-dark {
+    stroke-width: 14;
+  }
+
+  .divider-finish .ribbon-light {
+    stroke-width: 6px;
+    stroke-dasharray: 10 10;
+  }
+
+  .divider-finish .ribbon-light-bottom {
+    stroke-dashoffset: 10;
   }
 
   .section::after {
