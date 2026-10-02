@@ -11,6 +11,14 @@ const mapFrame = mapContainer?.querySelector("iframe[data-map-src]");
 const mapStatus = mapContainer?.querySelector("[data-map-status]");
 const mapRetry = mapContainer?.querySelector("[data-map-retry]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+document.querySelectorAll("[data-messenger-preview]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const messengerStatus = button.closest("[data-messenger-block]")?.querySelector("[data-messenger-status]");
+    if (messengerStatus) {
+      messengerStatus.textContent = `${button.dataset.messengerPreview}: контакт пока не подключён.`;
+    }
+  });
+});
 let formDialogCloseTimer;
 let lastFormDialogTrigger;
 let mapLoadTimer;

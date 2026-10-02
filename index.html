@@ -16,7 +16,7 @@
       <header class="site-header site-header-centered">
         <div class="header-branding">
           <a class="brand" href="#top" aria-label="Разгон — на главную">
-            <span class="brand-mark brand-mark-full" aria-hidden="true"><img src="./assets/razgon-full-logo.jpg" alt="" /></span>
+            <span class="brand-mark brand-mark-full" aria-hidden="true"><img src="./assets/razgon-full-logo-light.png" alt="" /></span>
           </a>
           <div class="header-socials" aria-label="Способы связи">
             <span class="social-icon" role="img" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle class="social-icon-dot" cx="17.4" cy="6.7" r="0.8" /></svg></span>
@@ -27,7 +27,7 @@
         <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
           <a href="#advantages">Преимущества</a>
           <a href="#programs">Программы</a>
-          <a href="#steps">Этапы</a>
+
           <a href="#faq">FAQ</a>
           <a href="#location">Адрес</a>
         </nav>
@@ -64,11 +64,16 @@
           </div>
 
           <div class="hero-visual">
-            <img
-              src="./assets/razgon-car-hero-white.jpg"
-              alt="Белый учебный автомобиль Razgon на фоне Екатеринбурга"
-              fetchpriority="high"
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcset="./assets/razgon-makarovsky-mobile.png" width="941" height="1672" />
+              <img
+                src="./assets/razgon-makarovsky-desktop.png"
+                alt="Рендер белого автомобиля Razgon на Макаровском мосту на фоне вечернего Екатеринбурга"
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
         </section>
 
@@ -96,12 +101,29 @@
           </div>
         </section>
 
+        <aside id="messengers" class="messenger-block" data-messenger-block aria-labelledby="messenger-title">
+          <div class="messenger-panel">
+            <div class="messenger-heading" data-scroll-accent="message">
+              <h2 id="messenger-title">Удобнее написать?</h2>
+              <span class="message-icon-slot" aria-hidden="true"><img class="message-icon" data-scroll-accent-art src="./assets/message-icon.png" alt="" width="512" height="512" decoding="async" /></span>
+            </div>
+            <p class="messenger-description">Выберите мессенджер для общения.</p>
+            <div class="messenger-actions">
+              <button class="messenger-button messenger-whatsapp" type="button" data-messenger-preview="WhatsApp" aria-describedby="messenger-status">Написать в WhatsApp</button>
+              <button class="messenger-button messenger-telegram" type="button" data-messenger-preview="Telegram" aria-describedby="messenger-status">Написать в Telegram</button>
+              <button class="messenger-button messenger-max" type="button" data-messenger-preview="Max" aria-describedby="messenger-status">Написать в Max</button>
+            </div>
+            <p id="messenger-status" class="messenger-status" data-messenger-status role="status">Тестовый блок — контакты пока не подключены.</p>
+          </div>
+        </aside>
+
         <div class="edge-accent edge-accent-right" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" /></div>
         <section id="programs" class="section programs has-section-divider" aria-labelledby="programs-title">
-          <div class="section-divider divider-car" aria-hidden="true">
+          <div class="section-divider divider-car" data-scroll-accent="car" aria-hidden="true">
             <span class="divider-line"></span>
             <span class="car-trail"></span>
-            <img class="divider-icon" src="./assets/car-divider.png" alt="" />
+            <span class="car-brake-trace" data-car-brake></span>
+            <img class="divider-icon" data-scroll-accent-art src="./assets/car-divider.png" alt="" />
           </div>
           <div class="section-heading section-heading-row">
             <div>
@@ -133,7 +155,8 @@
           </div>
         </section>
 
-        <section id="steps" class="section steps has-section-divider" aria-labelledby="steps-title">
+        <div class="edge-accent edge-accent-left" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" loading="lazy" /></div>
+        <section id="teachers" class="section upcoming-section has-section-divider" aria-labelledby="teachers-title">
           <div class="section-divider divider-road-sign" aria-hidden="true">
             <svg class="road-route" viewBox="0 0 1000 90" preserveAspectRatio="none">
               <path class="road-border" d="M-20 58C150 18 302 75 470 51S770 20 1020 54"></path>
@@ -146,51 +169,6 @@
               <rect class="sign-inner" x="18" y="14" width="28" height="28" rx="1" transform="rotate(45 32 28)"></rect>
             </svg>
           </div>
-          <div class="section-heading">
-            <p class="eyebrow">Как это работает</p>
-            <h2 id="steps-title">Четыре этапа до уверенного старта</h2>
-          </div>
-          <div class="steps-progress-start" aria-hidden="true">
-            <span>
-              <svg class="route-start-pin" viewBox="0 0 20 24">
-                <path d="M10 22s7-7.2 7-13A7 7 0 1 0 3 9c0 5.8 7 13 7 13Z"></path>
-                <circle cx="10" cy="9" r="2.5"></circle>
-              </svg>
-              <b>0%</b>
-            </span>
-          </div>
-          <ol class="steps-list">
-            <li style="--step-progress: 25%;">
-              <span>01</span><div><h3>Знакомство</h3><p>Определяем цель и учебный маршрут.</p></div>
-              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">25%</span></div>
-            </li>
-            <li style="--step-progress: 50%;">
-              <span>02</span><div><h3>Теория</h3><p>Разбираем правила и дорожные ситуации.</p></div>
-              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">50%</span></div>
-            </li>
-            <li style="--step-progress: 75%;">
-              <span>03</span><div><h3>Практика</h3><p>Переводим знания в уверенные действия.</p></div>
-              <div class="step-progress" aria-hidden="true"><span class="step-progress-fill"></span><span class="step-progress-marker">75%</span></div>
-            </li>
-            <li class="step-complete" style="--step-progress: 100%;">
-              <span>04</span><div><h3>Подготовка</h3><p>Повторяем главное перед экзаменом.</p></div>
-              <div class="step-progress" aria-hidden="true">
-                <span class="step-progress-fill"></span>
-                <span class="step-progress-marker step-license" title="Водительское удостоверение получено">
-                  <svg viewBox="0 0 48 32" aria-hidden="true">
-                    <rect x="1" y="1" width="46" height="30" rx="5"></rect>
-                    <circle cx="13" cy="14" r="5"></circle>
-                    <path d="M6 25c1.8-4 4.1-6 7-6s5.2 2 7 6M25 10h14M25 16h10M25 22h7"></path>
-                    <path class="license-check" d="m35 23 3 3 6-7"></path>
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <div class="edge-accent edge-accent-left" aria-hidden="true"><img src="./assets/razgon-flag-print.png" alt="" loading="lazy" /></div>
-        <section id="teachers" class="section upcoming-section" aria-labelledby="teachers-title">
           <img class="section-letter section-letter-r" src="./assets/razgon-letter-r-outline.png" alt="" aria-hidden="true" loading="lazy" />
           <div class="section-heading">
             <p class="eyebrow">Команда</p>
@@ -324,6 +302,14 @@
               Открыть форму
             </button>
           </div>
+          <div class="contact-messengers" data-messenger-block>
+            <div class="messenger-actions" aria-label="Написать в мессенджере">
+              <button class="messenger-button messenger-whatsapp" type="button" data-messenger-preview="WhatsApp" aria-describedby="contact-messenger-status">Написать в WhatsApp</button>
+              <button class="messenger-button messenger-telegram" type="button" data-messenger-preview="Telegram" aria-describedby="contact-messenger-status">Написать в Telegram</button>
+              <button class="messenger-button messenger-max" type="button" data-messenger-preview="Max" aria-describedby="contact-messenger-status">Написать в Max</button>
+            </div>
+            <p id="contact-messenger-status" class="messenger-status" data-messenger-status role="status">Контакты пока не подключены.</p>
+          </div>
         </section>
       </main>
 
@@ -364,7 +350,7 @@
 
       <footer class="site-footer" id="footer">
         <a class="brand footer-brand" href="./index.html#top" aria-label="Разгон — на главную">
-          <span class="brand-mark" aria-hidden="true"><img src="./assets/razgon-header-mark.png" alt="" /></span>
+          <span class="brand-mark" aria-hidden="true"><img src="./assets/razgon-footer-mark-light.png" alt="" /></span>
         </a>
         <div class="footer-info">
           <nav class="footer-links" aria-label="Документы">
