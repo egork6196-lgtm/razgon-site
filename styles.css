@@ -897,7 +897,7 @@ select:focus-visible {
 .feature-card p,
 .program-card > p,
 .faq-list p,
-.contact-copy > p:last-child {
+.contact-copy > p:not(.eyebrow) {
   color: var(--muted);
   line-height: 1.65;
 }
@@ -1370,14 +1370,32 @@ select:focus-visible {
 .contact {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 36px 80px;
+  align-items: start;
+  gap: 80px;
 }
 
 .contact-messengers {
-  grid-column: 1 / -1;
+  width: min(100%, 260px);
+  margin-top: 24px;
 }
 
-.contact-copy > p:last-child {
+.contact-messengers .messenger-actions {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.contact-messengers .messenger-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+}
+
+.contact-messengers .messenger-status {
+  margin-top: 12px;
+}
+
+.contact-copy > p:not(.eyebrow) {
   max-width: 480px;
   margin-top: 24px;
 }
@@ -2150,7 +2168,7 @@ select:focus-visible {
   .contact {
     display: block;
   }
-  .contact-messengers {
+  .contact-launch-card {
     margin-top: 28px;
   }
   .location-map {
