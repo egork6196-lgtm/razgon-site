@@ -871,13 +871,9 @@ select:focus-visible {
 .feature-card {
   min-height: 290px;
   padding: 32px;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: #e1e3e5;
+  border: 0;
   border-radius: var(--radius-panel);
-}
-
-.feature-card-accent {
-  background: linear-gradient(145deg, rgba(20, 108, 255, 0.07), var(--surface) 70%);
 }
 
 .feature-number {
@@ -1574,8 +1570,8 @@ select:focus-visible {
   justify-content: space-between;
   gap: 40px;
   padding: 38px;
-  background: var(--surface-strong);
-  border: 1px solid var(--line);
+  background: #e1e3e5;
+  border: 0;
   border-radius: var(--radius-panel);
 }
 
