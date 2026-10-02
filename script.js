@@ -11,6 +11,22 @@ const mapFrame = mapContainer?.querySelector("iframe[data-map-src]");
 const mapStatus = mapContainer?.querySelector("[data-map-status]");
 const mapRetry = mapContainer?.querySelector("[data-map-retry]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+// Reserve the fixed mobile header's actual height, including logo and text sizing.
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  const syncHeaderHeight = () => {
+    document.documentElement.style.setProperty(
+      "--mobile-header-height", `${siteHeader.getBoundingClientRect().height}px`,
+    );
+  };
+  syncHeaderHeight();
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(syncHeaderHeight).observe(siteHeader);
+  } else {
+    window.addEventListener("resize", syncHeaderHeight, { passive: true });
+  }
+}
+
 document.querySelectorAll("[data-messenger-preview]").forEach((button) => {
   button.addEventListener("click", () => {
     const messengerStatus = button.closest("[data-messenger-block]")?.querySelector("[data-messenger-status]");

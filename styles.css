@@ -2,6 +2,7 @@
   color-scheme: light;
   --page-bg: #eef0f2;
   --header-bg: #dce0e4;
+  --mobile-header-height: 76px;
   --surface: #e5e8ec;
   --surface-strong: #dfe4e9;
   --ink: #222831;
@@ -1939,14 +1940,19 @@ select:focus-visible {
   .site-footer {
     width: min(100% - 32px, 680px);
   }
+  .page-shell {
+    padding-top: var(--mobile-header-height);
+  }
   .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     min-height: 76px;
     padding-inline: 16px;
   }
   html {
-    scroll-padding-top: 96px;
+    scroll-padding-top: calc(var(--mobile-header-height) + 20px);
   }
   .site-nav {
     position: absolute;
@@ -2024,8 +2030,8 @@ select:focus-visible {
     display: none;
   }
   .hero {
-    min-height: calc(100vh - 76px - 18px);
-    min-height: calc(100svh - 76px - 18px);
+    min-height: calc(100vh - var(--mobile-header-height) - 18px);
+    min-height: calc(100svh - var(--mobile-header-height) - 18px);
     aspect-ratio: auto;
     display: block;
     padding: 28px 24px;

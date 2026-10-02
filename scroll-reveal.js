@@ -148,7 +148,7 @@
 
   accents.forEach((record, target) => prepare(target, record));
   const header = document.querySelector(".site-header");
-  const headerHeight = header && getComputedStyle(header).position === "sticky"
+  const headerHeight = header && ["sticky", "fixed"].includes(getComputedStyle(header).position)
     ? Math.ceil(header.getBoundingClientRect().height) : 0;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
