@@ -41,8 +41,9 @@
     });
   };
 
-  targets.forEach((target) => {
-    const bounds = target.getBoundingClientRect();
+  // Read all initial geometry before changing classes to avoid repeated layout.
+  const initialBounds = Array.from(targets, (target) => [target, target.getBoundingClientRect()]);
+  initialBounds.forEach(([target, bounds]) => {
     const isVisible = bounds.top < window.innerHeight && bounds.bottom > 0;
     visible.set(target, isVisible);
     if (!isVisible) prepareOffscreen(target, bounds);

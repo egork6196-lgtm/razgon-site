@@ -303,7 +303,8 @@ select {
   position: relative;
   isolation: isolate;
   width: 100%;
-  min-height: clamp(620px, calc(100svh - 152px), 900px);
+  min-height: calc(100vh - 98px - 18px);
+  min-height: calc(100svh - 98px - 18px);
   margin: 0;
   display: flex;
   align-items: flex-start;
@@ -917,7 +918,6 @@ select:focus-visible {
   height: clamp(480px, 58vw, 920px);
   border-radius: 50%;
   background: radial-gradient(ellipse at center, rgba(20, 108, 255, 0.045), transparent 72%);
-  filter: blur(32px);
   opacity: 0.95;
   transform: translateY(-50%);
   pointer-events: none;
@@ -943,7 +943,6 @@ select:focus-visible {
     width: 180vw;
     height: 150vw;
     opacity: 0.68;
-    filter: blur(24px);
   }
   #teachers::after,
   #reviews::after {
@@ -978,7 +977,6 @@ select:focus-visible {
   position: absolute;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(20, 108, 255, 0.045) 0, transparent 70%);
-  filter: blur(34px);
 }
 
 .lower-page-art::before {
@@ -2026,8 +2024,9 @@ select:focus-visible {
     display: none;
   }
   .hero {
-    min-height: 0;
-    aspect-ratio: 941 / 1672;
+    min-height: calc(100vh - 76px - 18px);
+    min-height: calc(100svh - 76px - 18px);
+    aspect-ratio: auto;
     display: block;
     padding: 28px 24px;
     margin: 0;
@@ -2322,12 +2321,12 @@ select:focus-visible {
   transition:
     opacity 1120ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 1120ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 
 .reveal-target.is-revealed {
   opacity: 1;
   transform: translateY(0);
+  will-change: opacity, transform;
 }
 
 .reveal-target.reveal-resetting {

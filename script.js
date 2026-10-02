@@ -154,7 +154,7 @@ if (mapContainer && mapFrame && mapStatus && mapRetry) {
       if (!entries.some((entry) => entry.isIntersecting)) return;
       mapObserver.disconnect();
       loadMap();
-    }, { rootMargin: "1200px 0px" });
+    }, { rootMargin: "300px 0px" });
     mapObserver.observe(mapContainer);
   } else {
     loadMap();
